@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Products | Blinkit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="filter.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="flex items-center gap-8 px-10 h-20 w-full border-b border-gray-200 sticky top-0 z-50 bg-white">
+
+        <!-- Blinkit logo -->
+        <a href="index.html" class="shrink-0">
+            <svg width="114" height="30" viewBox="0 0 114 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M14.3342 7.186C16.2619 7.186 17.9832 7.66644 19.4978 8.62732C21.0262 9.57447 22.2242 10.9197 23.0917 12.663C23.9316 14.3377 24.3516 16.3075 24.3516 18.5724C24.3516 20.7687 23.9316 22.7316 23.0917 24.4612C22.2517 26.1908 21.0675 27.5429 19.5391 28.5175C17.9969 29.5058 16.2619 30 14.3342 30C12.9297 30 11.6078 29.7117 10.3685 29.1352C9.12927 28.5587 8.06901 27.7488 7.18775 26.7056V29.4852H0V0H7.18775V10.4598C8.06901 9.41661 9.12927 8.61359 10.3685 8.05079C11.6078 7.47426 12.9297 7.186 14.3342 7.186ZM12.1861 24.0494C13.2051 24.0494 14.1139 23.8161 14.9125 23.3493C15.7112 22.8826 16.3377 22.2306 16.7921 21.3933C17.2465 20.5697 17.4737 19.6294 17.4737 18.5724C17.4737 17.5429 17.2465 16.6095 16.7921 15.7721C16.3377 14.9348 15.7112 14.2828 14.9125 13.8161C14.1139 13.3493 13.2051 13.116 12.1861 13.116C11.2223 13.116 10.3617 13.3493 9.60432 13.8161C8.84699 14.269 8.2549 14.9073 7.82804 15.731C7.40118 16.5683 7.18775 17.5154 7.18775 18.5724C7.18775 19.6294 7.40118 20.5765 7.82804 21.4139C8.2549 22.2375 8.84699 22.8826 9.60432 23.3493C10.3617 23.8161 11.2223 24.0494 12.1861 24.0494Z"
+                    fill="#F8CB46"></path>
+                <path d="M25.3356 29.4852V0H32.5233V29.4852H25.3356Z" fill="#F8CB46"></path>
+                <path d="M34.5607 29.4852V7.68016H41.7071V29.4852H34.5607Z" fill="#F8CB46"></path>
+                <path
+                    d="M57.2319 7.186C58.7603 7.186 60.1372 7.5429 61.3627 8.25669C62.5882 8.95676 63.5521 9.94509 64.2544 11.2217C64.9291 12.512 65.2664 13.9739 65.2664 15.6074V29.4852H58.4092V17.2135C58.4092 16.4173 58.2508 15.7104 57.9341 15.0927C57.6312 14.4612 57.1974 13.9739 56.6329 13.6307C56.0821 13.2876 55.4349 13.116 54.6914 13.116C53.9891 13.116 53.3419 13.2876 52.7498 13.6307C52.1577 13.9602 51.6965 14.4132 51.366 14.9897C51.0218 15.5388 50.8496 16.1839 50.8496 16.9252L50.8083 29.4852H43.6619V7.68016H50.8083V10.1716C51.483 9.23816 52.3849 8.51064 53.5141 7.98902C54.6432 7.45367 55.8824 7.186 57.2319 7.186Z"
+                    fill="#F8CB46"></path>
+                <path
+                    d="M81.0597 17.2135L89.1769 29.4852H81.0597L76.3091 21.7639L74.1198 24.2965V29.4852H66.932V0H74.1198V16.2869L81.0184 7.68016H89.1356L81.0597 17.2135Z"
+                    fill="#F8CB46"></path>
+                <path d="M34.5569 0.00232667H41.7267V5.59207H34.5569V0.00232667Z" fill="#F8CB46"></path>
+                <path d="M90.3176 29.4198V7.61479H97.464V29.4198H90.3176Z" fill="#54B226"></path>
+                <path
+                    d="M112.575 23.2634L114 27.855C113.353 28.4727 112.534 28.9737 111.542 29.3581C110.564 29.7424 109.607 29.9346 108.671 29.9346C107.322 29.9346 106.117 29.6395 105.057 29.0492C103.996 28.4452 103.17 27.6079 102.578 26.5372C101.986 25.494 101.69 24.2929 101.69 22.9339V13.3183H98.819V7.61479H101.69V0.00241089H108.547V7.61479H113.071V13.3183H108.547V21.6161C108.547 22.3162 108.733 22.8859 109.105 23.3251C109.477 23.7644 109.952 23.984 110.53 23.984C110.943 23.984 111.329 23.9223 111.687 23.7987C112.045 23.6752 112.341 23.4967 112.575 23.2634Z"
+                    fill="#54B226"></path>
+                <path d="M90.2609 0.00241089H97.4307V5.59215H90.2609V0.00241089Z" fill="#54B226"></path>
+            </svg>
+        </a>
+
+        <!-- Location -->
+        <div class="shrink-0 cursor-pointer">
+            <h3 class="font-bold text-xl">Delivery in 10 minutes</h3>
+            <p class="text-base text-gray-500">Select your location
+                <span class="text-black">▼</span>
+            </p>
+        </div>
+
+        <!-- Search bar -->
+        <div
+            class="flex items-center gap-3 bg-gray-100 border border-gray-200 rounded-xl px-4 h-12 text-lg flex-1 min-w-0">
+            <svg class="w-6 h-6 text-gray-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" stroke-width="2"></circle>
+                <path d="m16 16 4 4" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+            <input type="text" id="search-input" aria-label="Search products"
+                placeholder="Search for atta, dal, coke and more..."
+                class="w-full bg-transparent outline-none text-base">
+        </div>
+
+        <!-- Login -->
+        <button class="text-gray-800 font-medium text-xl shrink-0">Login</button>
+
+        <!-- My Cart -->
+        <button id="cart-button"
+            class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-4 text-lg rounded-lg font-semibold shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 3h2l2.5 12h10.8l2-8H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <circle cx="10" cy="19" r="1" fill="currentColor"></circle>
+                <circle cx="18" cy="19" r="1" fill="currentColor"></circle>
+            </svg>
+            My Cart
+            <span id="cart-count" class="bg-white text-green-700 rounded-full px-2 text-sm">0</span>
+        </button>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="w-[85%] mx-auto py-6">
+        <div class="flex gap-8">
+
+            <!-- Left: filters -->
+            <aside class="w-56 shrink-0 sticky top-24 self-start">
+
+                <div class="flex items-center justify-between mb-4 text-2xl">
+                    <h2 class="font-bold">Filters</h2>
+                    <button id="clear-filters" class="text-green-600 text-sm font-semibold">Clear all</button>
+                </div>
+
+                <!-- Price filter -->
+                <div class="mb-6 text-xl">
+                    <h3 class="font-semibold text-sm mb-2">Price</h3>
+                    <label class="flex items-center gap-2 text-sm mb-1"><input type="checkbox" name="price"
+                            value="under50" class="accent-green-600"> Under ₹50</label>
+                    <label class="flex items-center gap-2 text-sm mb-1"><input type="checkbox" name="price"
+                            value="50to99" class="accent-green-600"> ₹50 - ₹99</label>
+                    <label class="flex items-center gap-2 text-sm mb-1"><input type="checkbox" name="price"
+                            value="100plus" class="accent-green-600"> ₹100 &amp; above</label>
+                </div>
+
+                <!-- Brand filter -->
+                <div class="mb-6 text-xl">
+                    <h3 class="font-semibold text-sm mb-2">Brand</h3>
+                    <label class="flex items-center gap-2 text-sm mb-1"><input type="checkbox" name="brand" value="amul"
+                            class="accent-green-600"> Amul</label>
+                    <label class="flex items-center gap-2 text-sm mb-1"><input type="checkbox" name="brand"
+                            value="chitale" class="accent-green-600"> Chitale</label>
+                    <label class="flex items-center gap-2 text-sm mb-1"><input type="checkbox" name="brand"
+                            value="gokul" class="accent-green-600"> Gokul</label>
+                    <label class="flex items-center gap-2 text-sm mb-1"><input type="checkbox" name="brand"
+                            value="yojana" class="accent-green-600"> Yojana</label>
+                </div>
+
+            </aside>
+
+            <!-- Right: sort bar + product grid -->
+            <section class="flex-1 min-w-0">
+
+                <!-- Result count and sort -->
+                <div class="flex items-center justify-between mb-5">
+                    <p id="result-count" class="text-sm text-gray-600 text-2xl">8 products found</p>
+
+                    <select id="sort-select" aria-label="Sort products"
+                        class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                        <option value="relevance">Sort by: Relevance</option>
+                        <option value="low">Price: Low to High</option>
+                        <option value="high">Price: High to Low</option>
+                    </select>
+                </div>
+
+                <!-- Product grid -->
+                <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+                    <!-- Product 1 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="milk-chitale-pasteurised-500">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/b1f58476-0f18-4d25-a523-d2f29ebcb2c7.png"
+                                alt="Chitale Pasteurised Cow Milk" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Chitale Pasteurised Cow Milk</h3>
+                        <p class="text-sm text-gray-500 mt-2">500 ml</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹34</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="milk-chitale-fullcream-500">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/172ff149-60a1-4e57-968a-f252dc0ba6a6.png"
+                                alt="Chitale Full Cream Milk" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Chitale Full Cream Milk</h3>
+                        <p class="text-sm text-gray-500 mt-2">500 ml</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹41</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="eggs-yojana-6">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/e13b3105-58c0-41f1-b6a9-0e4a3344cf6e.png"
+                                alt="Yojana Poultry Power White Eggs" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Yojana Poultry Power White Eggs</h3>
+                        <p class="text-sm text-gray-500 mt-2">6 pcs</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹63</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="curd-amul-masti-200">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/e47341cd-d920-4c0a-a9f2-20d663976cd0.png"
+                                alt="Amul Masti Cup Curd" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Amul Masti Cup Curd</h3>
+                        <p class="text-sm text-gray-500 mt-2">200 g</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹26</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="milk-gokul-fullcream-500">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/bc94259c-f293-4289-abc5-f4cb0da63270.png"
+                                alt="Gokul Full Cream Milk" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Gokul Full Cream Milk</h3>
+                        <p class="text-sm text-gray-500 mt-2">500 ml</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹39</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="milk-amul-taaza-500">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/5734b087-3ad9-485f-bbe2-52079cd9e35d.png"
+                                alt="Amul Taaza Toned Milk" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Amul Taaza Toned Milk</h3>
+                        <p class="text-sm text-gray-500 mt-2">500 ml</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹31</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="curd-chitale-pouch-400">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/67a0b153-95dd-49fa-8c48-bd6109ef4e47.png"
+                                alt="Chitale Pouch Curd" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Chitale Pouch Curd</h3>
+                        <p class="text-sm text-gray-500 mt-2">400 g</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹41</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="border border-gray-200 rounded-xl p-3" data-id="eggs-yojana-12">
+                        <div class="w-[140px] h-[140px] mx-auto">
+                            <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/e13b3105-58c0-41f1-b6a9-0e4a3344cf6e.png"
+                                alt="Yojana Poultry Power White Eggs" class="w-full h-full object-contain">
+                        </div>
+                        <div class="text-[11px] font-bold bg-gray-100 w-fit px-2 py-1 rounded mt-2">16 MINS</div>
+                        <h3 class="text-base font-semibold mt-2 leading-5 h-10">Yojana Poultry Power White Eggs</h3>
+                        <p class="text-sm text-gray-500 mt-2">12 pcs</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold">₹126</span>
+                            <button
+                                class="add-to-cart border border-green-600 bg-green-50 text-green-700 font-bold px-4 py-1 rounded-lg text-sm">ADD</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Shown when no product matches the filters -->
+                <p id="no-results" class="hidden text-center text-gray-500 py-10">No products found</p>
+
+            </section>
+
+        </div>
+    </main>
+
+     <!-- FOOTER SECTION START -->
+
+        <footer class="bg-white  mt-10 text-2xl ">
+
+            <!-- FOOTER LINKS -->
+            <div class="w-[95%] mx-auto py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                <!-- USEFUL LINKS -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-5">
+                        Useful Links
+                    </h2>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 ">
+
+                        <ul class="space-y-3 text-sm text-gray-500 text-xl">
+                            <li><a href="#" class="hover:text-green-600">Blog</a></li>
+                            <li><a href="#" class="hover:text-green-600">Privacy</a></li>
+                            <li><a href="#" class="hover:text-green-600">Terms</a></li>
+                            <li><a href="#" class="hover:text-green-600">FAQs</a></li>
+                            <li><a href="#" class="hover:text-green-600">Security</a></li>
+                            <li><a href="#" class="hover:text-green-600">Contact</a></li>
+                        </ul>
+
+                        <ul class="space-y-3 text-sm text-gray-500 text-xl">
+                            <li><a href="#" class="hover:text-green-600">Partner</a></li>
+                            <li><a href="#" class="hover:text-green-600">Franchise</a></li>
+                            <li><a href="#" class="hover:text-green-600">Seller</a></li>
+                            <li><a href="#" class="hover:text-green-600">Warehouse</a></li>
+                            <li><a href="#" class="hover:text-green-600">Deliver</a></li>
+                            <li><a href="#" class="hover:text-green-600">Resources</a></li>
+                        </ul>
+
+                        <ul class="space-y-3 text-sm text-gray-500 text-xl">
+                            <li><a href="#" class="hover:text-green-600">Recipes</a></li>
+                            <li><a href="#" class="hover:text-green-600">Bistro</a></li>
+                            <li><a href="#" class="hover:text-green-600">District</a></li>
+                            <li><a href="#" class="hover:text-green-600">Blinkit Ambulance</a></li>
+                            <li><a href="#" class="hover:text-green-600">Feeding India</a></li>
+                            <li><a href="#" class="hover:text-green-600">Eternal SBI Credit Card</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+                <!-- CATEGORIES -->
+                <div>
+
+                    <div class="flex items-center justify-between mb-5 ">
+                        <h2 class="text-2xl font-bold text-gray-800 ">
+                            Categories
+                        </h2>
+
+                        <a href="#" class="text-green-600 text-sm font-semibold">
+                            see all
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+
+                        <ul class="space-y-3 text-sm text-gray-500 text-xl">
+                            <li><a href="#">Bath & Body</a></li>
+                            <li><a href="#">Hair</a></li>
+                            <li><a href="#">Skin & Face</a></li>
+                            <li><a href="#">Beauty & Cosmetics</a></li>
+                            <li><a href="#">Feminine Hygiene</a></li>
+                            <li><a href="#">Baby Care</a></li>
+                            <li><a href="#">Health & Pharma</a></li>
+                            <li><a href="#">Sexual Wellness</a></li>
+                            <li><a href="#">Vegetables & Fruits</a></li>
+                            <li><a href="#">Atta, Rice & Dal</a></li>
+                        </ul>
+
+                        <ul class="space-y-3 text-sm text-gray-500 text-xl">
+                            <li><a href="#">Oil, Ghee & Masala</a></li>
+                            <li><a href="#">Dairy, Bread & Eggs</a></li>
+                            <li><a href="#">Bakery & Biscuits</a></li>
+                            <li><a href="#">Dry Fruits & Cereals</a></li>
+                            <li><a href="#">Chicken, Meat & Fish</a></li>
+                            <li><a href="#">Kitchenware & Appliances</a></li>
+                            <li><a href="#">Chips & Namkeen</a></li>
+                            <li><a href="#">Sweets & Chocolates</a></li>
+                            <li><a href="#">Drinks & Juices</a></li>
+                            <li><a href="#">Tea, Coffee & Milk Drinks</a></li>
+                        </ul>
+
+                        <ul class="space-y-3 text-sm text-gray-500 text-xl">
+                            <li><a href="#">Instant Food</a></li>
+                            <li><a href="#">Sauces & Spreads</a></li>
+                            <li><a href="#">Paan Corner</a></li>
+                            <li><a href="#">Ice Creams & More</a></li>
+                            <li><a href="#">Home & Lifestyle</a></li>
+                            <li><a href="#">Cleaners & Repellents</a></li>
+                            <li><a href="#">Electronics</a></li>
+                            <li><a href="#">Stationery & Games</a></li>
+                            <li><a href="#">Print Store</a></li>
+                            <li><a href="#">E-Gift Cards</a></li>
+                            <li><a href="#">Rakhi Gifts</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- DOWNLOAD AND SOCIAL MEDIA -->
+            <div class="py-6">
+
+                <div class="w-[95%] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+
+                    <!-- COPYRIGHT -->
+                    <div class="text-sm text-gray-500">
+                        © Blink Commerce Private Limited, 2016-2026
+                    </div>
+
+                    <!-- DOWNLOAD APP -->
+                    <div class="flex items-center gap-4">
+
+                        <h3 class="font-semibold text-gray-700 whitespace-nowrap">
+                            Download App
+                        </h3>
+
+                        <a href="#" target="_blank">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on App Store" class="w-[120px] h-[40px] object-contain">
+                        </a>
+
+                        <a href="#" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play" class="w-[135px] h-[40px] object-contain">
+                        </a>
+
+                    </div>
+
+
+
+
+                    <!-- SOCIAL MEDIA -->
+                    <!-- SOCIAL MEDIA -->
+                    <div class="flex items-center gap-3">
+
+                        <!-- Facebook -->
+                        <a href="#" aria-label="Facebook"
+                            class="w-9 h-9 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-[#1877F2]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+
+                        <!-- X (Twitter) -->
+                        <a href="#" aria-label="X"
+                            class="w-9 h-9 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-black">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="#" aria-label="Instagram"
+                            class="w-9 h-9 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-[#E4405F]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="#" aria-label="LinkedIn"
+                            class="w-9 h-9 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-[#0A66C2]">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DISCLAIMER -->
+            <div class="w-[95%] mx-auto py-6">
+
+                <p class="text-xl text-gray-400 leading-6 text-justify ">
+                    "Blinkit" is owned & managed by "Blink Commerce Private Limited"
+                    and is not related, linked or interconnected in whatsoever manner
+                    or nature, to "GROFFR.COM" which is a real estate services business
+                    operated by "Redstone Consultancy Services Private Limited".
+                </p>
+
+            </div>
+
+        </footer>
+
+        <!-- FOOTER SECTION END -->
+
+</body>
+
+</html>
